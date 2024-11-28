@@ -62,7 +62,7 @@ describe('client', () => {
 
     it('should send requests to the Twilio Email path', () => {
       const scope = nock('https://email.twilio.com')
-        .matchHeader('Authorization', /^Basic dXNlcm5hbWU6cGFzc3dvcmQ=$/)
+        .matchHeader('Authorization', `${process.env.AUTHORIZATION}`)
         .get('/')
         .reply(200, 'test response');
 
